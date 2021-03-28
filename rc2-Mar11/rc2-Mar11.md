@@ -37,7 +37,7 @@ Then $X$ is said to be a **binomial random variable with parameters $n$ and $p$.
 
 #### ==Geometric Distribution==  ==$X \sim \operatorname{Geom}(p)$.==
 
-Getting the first success on the xth Bernuolli trail:
+Getting the first success on the xth Bernoulli trail:
 
 Let $S$ be a sample space and
 $$
@@ -84,7 +84,6 @@ is said to follow a **Pascal distribution with parameters $p$ and $r$.**
 	m_{X}:(-\infty,-\ln q) \rightarrow \mathbb{R}, \quad m_{X}(t)=\frac{\left(p e^{t}\right)^{r}}{\left(1-q e^{t}\right)^{r}}, \quad q=1-p
 	$$
 	
-
 - <u>Expectation & Variance</u> 
 	$$
 	E[x] = \frac{r}{p} \qquad Var[X] = \frac{rq}{p^2}
