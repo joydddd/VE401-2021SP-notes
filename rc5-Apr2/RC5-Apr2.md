@@ -143,6 +143,15 @@ n \approx \frac{\left(z_{\alpha / 2}+z_{\beta}\right)^{2} \sigma^{2}}{\delta^{2}
 $$
 (Use OC curve or mma, don't use this estimation unless this the only way to do it )
 
+> Exercise 5.4 $\quad$ NHST Supercavitation is a propulsion technology for undersea vehicles that can greatly increase their speed. It occurs above approximately 50 meters per second, when pressure drops sufficiently to allow the water to dissociate into water vapor, forming a gas bubble behind the vehicle. When the gas bubble completely encloses the vehicle, supercavitation is said to occur.
+>
+> Eight tests were conducted on a scale model of an undersea vehicle in a towing basin with the average observed speed $\bar{x}=102.2$ meters per second. Assume that speed is normally distributed with known standard deviation $\sigma=4$ meters per second.
+> i) Test the hypothesis $H_{0}: \mu \leq 100$ versus $H_{1}: \mu>100$ using $\alpha=0.05$. (2 Marks)
+> ii) What is the $P$ -value for the test in part (i)? (1 Mark)
+> iii) Find the power of the test if the true mean speed is as low as 105 meters per second. (1 Mark)
+> iv) What sample size would be required to detect a true mean speed as low as 105 meters per second if we wanted the power of the test to be at least $0.85 ?$ (1 Mark)
+> v) Explain how the question in part could be answered by constructing a one-sided confidence bound on the mean speed. (1 Mark)
+
 ## Tests on Normal distribution
 
 ### T-Test
@@ -178,3 +187,49 @@ We reject at significance level $\alpha$
 
 - $H_{0}: \sigma \leq \sigma_{0}$ if $\chi_{n-1}^{2}>\chi_{\alpha, n-1}^{2}$
 - $H_{0}: \sigma \geq \sigma_{0}$ if $\chi_{n-1}^{2}<\chi_{1-\alpha, n-1}^{2}$
+
+## Non-parametric Statistics
+
+doesn't depend on any parametric and is **==distribution-free==**
+
+gives estimation of **==median or quartile==** instead of mean or variance
+
+### Sign Test
+
+Test for ==median==
+
+$$
+Q_{+}=\#\left\{X_{k}: X_{k}-M_{0}>0\right\}, \quad Q_{-}=\#\left\{X_{k}: X_{k}-M_{0}<0\right\}
+$$
+We reject at significance level $\alpha$
+
+- $H_{0}: M \leq M_{0} \text { if } P\left[Q_{-} \leq k \mid M=M_{0}\right]<\alpha$
+- $H_0 : M \geq M_{0} \text { if } P\left[Q_{+} \leq k \mid M=M_{0}\right]<\alpha$
+- $H_{0}: M=M_{0} \text { if } P\left[\min \left(Q_{-}, Q_{+}\right) \leq k \mid M=M_{0}\right]<\alpha / 2$
+
+### Wilcoxon Signed Rank Test
+
+Assumption: The distribution is ==symmetric about its median==
+
+**==rank==**: rank of absolute difference between data and hypothesis
+
+==**Tie resolution**==: rank  = average of their ranks. 
+$$
+W_{+}=\sum_{R_{i}>0} R_{i}, \quad\left|W_{-}\right|=\sum_{R_{i}<0}\left|R_{i}\right|
+$$
+Ne reject at significance level $\alpha$
+- $H_{0}: M \leq M_{0}$ if $W_{-}$ is smaller than the critical value for $\alpha$,
+- $H_{0}: M \geq M_{0}$ if $W_{+}$ is smaller than the critical value for $\alpha$
+- $H_{0}: M=M_{0}$ if $W=\min \left(W_{+},\left|W_{-}\right|\right)$ is smaller than the critical value for $\alpha / 2$
+
+Find critical value in table unless you are explicitly told to use a normal approximation. 
+
+#### Normal Approximation
+
+when $n\ge 10$ and assume it follows normal distribution, we can approximate critical value using normal distribution of 
+$$
+E[W] = \frac{n(n+1)}{4}, \quad Var[W] = \frac{n(n+1)(2n+1)}{24} - tie correction
+$$
+for each group of t ties, the variance is reduce by $(t^3-t)/48$
+
+> Note: this approximation is quite rough and in the case of many ties, the variance can even be less than 0! 
