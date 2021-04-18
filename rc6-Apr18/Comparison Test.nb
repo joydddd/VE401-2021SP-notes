@@ -1,0 +1,364 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     11817,        356]
+NotebookOptionsPosition[     10547,        323]
+NotebookOutlinePosition[     10932,        340]
+CellTagsIndexPosition[     10889,        337]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Comparison of Two Variances", "Section",
+ CellChangeTimes->{{3.798257067872428*^9, 
+  3.7982571127304697`*^9}},ExpressionUUID->"a59297bf-a209-427d-a72d-\
+bf2ea63bb9d1"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"\[Alpha]", " ", "="}], " ", ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"data1", "="}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"data2", "="}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"s1", "=", 
+   SqrtBox[
+    RowBox[{"Variance", "[", "data1", "]"}]]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"s2", "=", 
+   SqrtBox[
+    RowBox[{"Variance", "[", "data2", "]"}]]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"n1", "=", 
+   RowBox[{"Length", "[", "data1", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"n2", "=", 
+   RowBox[{"Length", "[", "data2", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"F", "=", 
+  FractionBox[
+   SuperscriptBox["s1", "2"], 
+   SuperscriptBox["s2", "2"]]}], "\[IndentingNewLine]", 
+ RowBox[{"InverseCDF", "[", 
+  RowBox[{
+   RowBox[{"FRatioDistribution", "[", 
+    RowBox[{
+     RowBox[{"n1", "-", "1"}], ",", 
+     RowBox[{"n2", "-", "1"}]}], "]"}], ",", 
+   RowBox[{"1", "-", "\[Alpha]"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.798256402244734*^9, 3.7982564035400267`*^9}, 
+   3.7982713746125*^9, {3.798271560302558*^9, 
+   3.7982715966700234`*^9}},ExpressionUUID->"5b30ee9c-f82f-42c3-b6b8-\
+37d7dd847454"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Comparison of Mean", "Section",
+ CellChangeTimes->{{3.7982716069546366`*^9, 
+  3.7982716100922966`*^9}},ExpressionUUID->"f8b0702d-e0fb-443f-96ac-\
+f447b0f2cc55"],
+
+Cell[CellGroupData[{
+
+Cell["Given sigma", "Subsection",
+ CellChangeTimes->{{3.798271614634172*^9, 
+  3.798271620104876*^9}},ExpressionUUID->"9e05c902-0a6c-4232-a93b-\
+f91842f8dfd8"],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"data1", " ", "="}], " ", ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"data2", " ", "="}], " ", ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"\[Sigma]1", "="}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"\[Sigma]2", "="}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"x1", "=", 
+     RowBox[{"Mean", "[", "data1", "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"x2", "=", 
+     RowBox[{"Mean", "[", "data2", "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"n1", "=", 
+     RowBox[{"Length", "[", "data1", "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"n2", "=", 
+     RowBox[{"Length", "[", "data2", "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"Z", "=", 
+    FractionBox[
+     RowBox[{"x1", "-", "x2"}], 
+     SqrtBox[
+      RowBox[{
+       FractionBox[
+        RowBox[{"\[Sigma]1", "^", "2"}], "n1"], "+", 
+       FractionBox[
+        RowBox[{"\[Sigma]2", "^", "2"}], "n2"]}]]]}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"\[Alpha]", " ", "="}], " ", ";"}], "\[IndentingNewLine]", 
+   RowBox[{"InverseCDF", "[", 
+    RowBox[{
+     RowBox[{"NormalDistribution", "[", "]"}], ",", 
+     RowBox[{"1", "-", "\[Alpha]"}]}], "]"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"n", "=", 
+    FractionBox[
+     RowBox[{
+      SuperscriptBox["\[Sigma]1", "2"], "+", 
+      SuperscriptBox["\[Sigma]2", "2"]}], 
+     RowBox[{
+      RowBox[{
+       SuperscriptBox["\[Sigma]1", "2"], "/", "n1"}], "+", 
+      RowBox[{
+       SuperscriptBox["\[Sigma]2", "2"], "/", "n2"}]}]]}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"delta", " ", "="}], " ", ";"}], "\[IndentingNewLine]", 
+   RowBox[{"d", "=", " ", 
+    RowBox[{"delta", " ", "/", 
+     RowBox[{"Sqrt", "[", 
+      RowBox[{
+       RowBox[{"\[Sigma]1", "^", "2"}], " ", "+", " ", 
+       RowBox[{"\[Sigma]2", "^", "2"}]}], "]"}]}]}]}]}]], "Input",
+ CellChangeTimes->{{3.7981936010594254`*^9, 3.7981936412369585`*^9}, {
+   3.798193672107411*^9, 3.7981937037148924`*^9}, 3.798195860565033*^9, {
+   3.798271638068822*^9, 3.7982717756640205`*^9}, {3.798272915292245*^9, 
+   3.7982729444465113`*^9}, {3.7982730784418526`*^9, 3.7982730873198905`*^9}},
+ EmphasizeSyntaxErrors->True,
+ FontFamily->
+  "TeXGyrePagella",ExpressionUUID->"473a6484-02b3-4af6-be20-7f7d348382ff"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Equivalent samples", "Subsection",
+ CellChangeTimes->{{3.798271810943166*^9, 
+  3.798271821766387*^9}},ExpressionUUID->"54405b77-1e49-4eb4-9081-\
+1f213371ba94"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"data1", " ", ":="}], " ", ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"data2", " ", ":="}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"x1", "=", 
+   RowBox[{"Mean", "[", "data1", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"x2", "=", 
+   RowBox[{"Mean", "[", "data2", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"n1", "=", 
+   RowBox[{"Length", "[", "data1", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"n2", "=", 
+   RowBox[{"Length", "[", "data2", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"s1", "=", 
+   RowBox[{"0.85", 
+    SqrtBox[
+     RowBox[{"Variance", "[", "data1", "]"}]]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"s2", "=", 
+    RowBox[{"0.98", 
+     SqrtBox[
+      RowBox[{"Variance", "[", "data2", "]"}]]}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"Sp", "=", 
+  SqrtBox[
+   FractionBox[
+    RowBox[{
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"n1", "-", "1"}], ")"}], 
+      SuperscriptBox["s1", "2"]}], "+", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"n2", "-", "1"}], ")"}], 
+      SuperscriptBox["s2", "2"]}]}], 
+    RowBox[{"n1", "+", "n2", "-", "2"}]]]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Alpha]", "=", "0.025"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"CI", "=", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{"x1", "-", "x2"}], ")"}], "\[PlusMinus]", 
+   RowBox[{
+    RowBox[{"InverseCDF", "[", 
+     RowBox[{
+      RowBox[{"StudentTDistribution", "[", 
+       RowBox[{"n1", "+", "n2", "-", "2"}], "]"}], ",", 
+      RowBox[{"1", "-", "\[Alpha]"}]}], "]"}], "*", 
+    SqrtBox[
+     RowBox[{
+      SuperscriptBox["Sp", "2"], 
+      RowBox[{"(", 
+       RowBox[{
+        FractionBox["1", "n1"], "+", 
+        FractionBox["1", "n2"]}], ")"}]}]]}]}]}], "\[IndentingNewLine]", 
+ RowBox[{"T", "=", 
+  FractionBox[
+   RowBox[{"x1", "-", "x2", "-", "d"}], 
+   SqrtBox[
+    RowBox[{
+     SuperscriptBox["Sp", "2"], 
+     RowBox[{"(", 
+      RowBox[{
+       FractionBox["1", "n1"], "+", 
+       FractionBox["1", "n2"]}], ")"}]}]]]}], "\[IndentingNewLine]", 
+ RowBox[{"InverseCDF", "[", 
+  RowBox[{
+   RowBox[{"StudentTDistribution", "[", 
+    RowBox[{"n1", "+", "n2", "-", "1"}], "]"}], ",", 
+   RowBox[{"1", "-", "\[Alpha]"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.798194081681711*^9, 3.7981940885403705`*^9}, {
+   3.798194131181348*^9, 3.7981942668868*^9}, {3.798194307133181*^9, 
+   3.7981943775259523`*^9}, 3.7981958896362963`*^9, {3.7982728019097195`*^9, 
+   3.798272907896392*^9}, {3.7982729501288176`*^9, 3.7982730114942307`*^9}},
+ EmphasizeSyntaxErrors->True,
+ FontFamily->"TeXGyrePagella",
+ CellLabel->"In[1]:=",ExpressionUUID->"3c336577-8af1-43cf-a8ad-4d57008f40d0"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Unequal Variance (Welch\[CloseCurlyQuote]s test)", "Subsection",
+ CellChangeTimes->{{3.7981938012595897`*^9, 3.7981938489310846`*^9}, 
+   3.798272776759906*^9, {3.7982731004188924`*^9, 3.7982731202018085`*^9}},
+ FontFamily->
+  "TeXGyrePagella",ExpressionUUID->"cd17a2af-71a3-4de6-8149-7a399c8427cf"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"x1", "="}], 
+    RowBox[{"(*", 
+     RowBox[{"Mean", "[", "data1", "]"}], "*)"}], ";", "\[IndentingNewLine]", 
+    RowBox[{"x2", "="}], 
+    RowBox[{"(*", 
+     RowBox[{"Mean", "[", "data2", "]"}], "*)"}], ";", "\[IndentingNewLine]", 
+    RowBox[{"n1", "="}], 
+    RowBox[{"(*", 
+     RowBox[{"Length", "[", "data1", "]"}], "*)"}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"n2", "="}], 
+    RowBox[{"(*", 
+     RowBox[{"Length", "[", "data2", "]"}], "*)"}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"s1", "="}], 
+    RowBox[{"(*", 
+     SqrtBox[
+      RowBox[{"Variance", "[", "data1", "]"}]], "*)"}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"s2", "="}], 
+    RowBox[{"(*", 
+     SqrtBox[
+      RowBox[{"Variance", "[", "data2", "]"}]], "*)"}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"\[Alpha]", "="}], ";", "\[IndentingNewLine]", 
+    RowBox[{"d", "="}], ";"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"\[Gamma]", "=", 
+    FractionBox[
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{
+        FractionBox[
+         SuperscriptBox["s1", "2"], "n1"], "+", 
+        FractionBox[
+         SuperscriptBox["s2", "2"], "n2"]}], ")"}], "2"], 
+     RowBox[{
+      FractionBox[
+       SuperscriptBox[
+        RowBox[{"(", 
+         FractionBox[
+          SuperscriptBox["s1", "2"], "n1"], ")"}], "2"], 
+       RowBox[{"n1", "-", "1"}]], "+", 
+      FractionBox[
+       SuperscriptBox[
+        RowBox[{"(", 
+         FractionBox[
+          SuperscriptBox["s2", "2"], "n2"], ")"}], "2"], 
+       RowBox[{"n2", "-", "1"}]]}]]}], "\[IndentingNewLine]", 
+   RowBox[{"T", "=", 
+    FractionBox[
+     RowBox[{"x1", "-", "x2", "-", "d"}], 
+     SqrtBox[
+      RowBox[{
+       FractionBox[
+        SuperscriptBox["s1", "2"], "n1"], "+", 
+       FractionBox[
+        SuperscriptBox["s2", "2"], "n2"]}]]]}], "\[IndentingNewLine]", 
+   RowBox[{"InverseCDF", "[", 
+    RowBox[{
+     RowBox[{"StudentTDistribution", "[", 
+      RowBox[{"Floor", "[", "\[Gamma]", "]"}], "]"}], ",", 
+     RowBox[{"1", "-", 
+      RowBox[{"\[Alpha]", "/", "2"}]}]}], "]"}]}]}]], "Input",
+ CellChangeTimes->{
+  3.7982730759110603`*^9, {3.7982731311714444`*^9, 3.7982731539054995`*^9}, {
+   3.798273208682809*^9, 
+   3.798273227945511*^9}},ExpressionUUID->"c44aa616-2708-4b62-9b26-\
+56902c04a661"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{759, 661},
+WindowMargins->{{Automatic, 83}, {40, Automatic}},
+Magnification:>1.2 Inherited,
+FrontEndVersion->"12.0 for Microsoft Windows (64-bit) (2019\:5e744\:67088\
+\:65e5)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 174, 3, 80, "Section",ExpressionUUID->"a59297bf-a209-427d-a72d-bf2ea63bb9d1"],
+Cell[757, 27, 1242, 35, 255, "Input",ExpressionUUID->"5b30ee9c-f82f-42c3-b6b8-37d7dd847454"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2036, 67, 167, 3, 80, "Section",ExpressionUUID->"f8b0702d-e0fb-443f-96ac-f447b0f2cc55"],
+Cell[CellGroupData[{
+Cell[2228, 74, 159, 3, 63, "Subsection",ExpressionUUID->"9e05c902-0a6c-4232-a93b-f91842f8dfd8"],
+Cell[2390, 79, 2423, 64, 447, "Input",ExpressionUUID->"473a6484-02b3-4af6-be20-7f7d348382ff"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4850, 148, 166, 3, 65, "Subsection",ExpressionUUID->"54405b77-1e49-4eb4-9081-1f213371ba94"],
+Cell[5019, 153, 2790, 83, 493, "Input",ExpressionUUID->"3c336577-8af1-43cf-a8ad-4d57008f40d0"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7846, 241, 305, 4, 58, "Subsection",ExpressionUUID->"cd17a2af-71a3-4de6-8149-7a399c8427cf"],
+Cell[8154, 247, 2365, 72, 415, "Input",ExpressionUUID->"c44aa616-2708-4b62-9b26-56902c04a661"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
