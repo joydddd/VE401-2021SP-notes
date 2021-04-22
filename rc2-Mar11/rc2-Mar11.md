@@ -4,6 +4,10 @@
 
 >  By TA: DONG Juechu, Mar. 2021
 
+if you want to edit this note, you can find it here https://github.com/joydddd/VE401-2020SP-notes
+
+
+
 ### Discrete Distributions
 
 #### ==$$X \sim \text{Bernoulli} (p)$$==
@@ -84,7 +88,6 @@ is said to follow a **Pascal distribution with parameters $p$ and $r$.**
 	m_{X}:(-\infty,-\ln q) \rightarrow \mathbb{R}, \quad m_{X}(t)=\frac{\left(p e^{t}\right)^{r}}{\left(1-q e^{t}\right)^{r}}, \quad q=1-p
 	$$
 	
-
 - <u>Expectation & Variance</u> 
 	$$
 	E[x] = \frac{r}{p} \qquad Var[X] = \frac{rq}{p^2}

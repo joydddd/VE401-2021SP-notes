@@ -4,7 +4,7 @@
 
 ## RC#1 Probability Theory & Discrete Random Variables
 
-## Classical Definition of Probability
+## Classical Definition of Probab  ility
 
 #### Cardan's Principle
 
@@ -20,7 +20,7 @@ $$
 
 - There are $\frac{n !}{(n-k) !}$ different ways of choosing an ordered tuple of $k$ objects from $A$. Such a choice is called a **==permutation==** of $k$ objects from $A$.
 - There are $\frac{n !}{k !(n-k) !}$ different ways of choosing an unordered set of $k$ objects from $A$. Such a choice is called a **==combination==** of k objects from $A$
-- There are $\frac{n !}{n_{1} ! n_{2} ! \ldots n_{k} !}$ ways of partitioning $\hat{A}_{i}$ into $k$ disjoint subsets $A_{1}, \ldots, A_{k}$ whose union is $A,$ where each $\vec{a}_{i}$ has $n_{i}$ elements. This is called a **==permutation of k indistinguishable objects from A==** (deduced from the 1)
+- There are $\frac{n !}{n_{1} ! n_{2} ! \ldots n_{k} !}$ ways of partitioning $\hat{A}_{i}$ into $k$ disjoint subsets $A_{1}, \ldots, A_{k}$ whose union is $A,$ where each $\vec{a}_{i}$ has $n_{i}$ elements. This is called a **==permutation of k indistinguishable objects from A==** (deduced from the 1)
 
 ![image-20210304185929109](RCwk1.assets/image-20210304185929109.png)
 
@@ -80,7 +80,7 @@ $$
 
 ## [IMPORTANT] Conditional Probability
 
-$P[B|A]$ -- the probability that =="B occurs given that A has occurred"==
+$P[B|A]$ -- the probability that =="B occurs given that A has occurred"==
 $$
 P[B \mid A]:=\frac{P[A \cap B]}{P[A]} \quad \text{(if P[A] != 0)} \\
 P\left[A_{1} \mid A_{2}\right]=\frac{\left|A_{1} \cap A_{2}\right|}{\left|A_{2}\right|}=\frac{P\left[A_{1} \cap A_{2}\right]}{P\left[A_{2}\right]} \\
@@ -116,6 +116,12 @@ Let $A_{1}, \ldots, A_{n} \subset S$ be a set of ==mutually exclusive events== w
 $$
 P\left[A_{k} \mid B\right]=\frac{P\left[B \cap A_{k}\right]}{P[B]}=\frac{P\left[B \mid A_{k}\right] \cdot P\left[A_{k}\right]}{\sum_{j=1}^{n} P\left[B \mid A_{j}\right] \cdot P\left[A_{j}\right]}
 $$
+
+> #### Two Envelopes Problem
+>
+> https://en.wikipedia.org/wiki/Two_envelopes_problem
+>
+> *You are given two indistinguishable envelopes, each containing money. One contains twice as much as the other. You may pick one envelope and keep the money it contains. Having chosen an envelope at will, but before inspecting it, you are given the chance to switch envelopes. Should you switch?*
 
 >  #### The Marriage Problem  
 >

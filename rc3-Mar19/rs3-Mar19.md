@@ -1,4 +1,4 @@
-# VE401 Probabilistic Methods in Eng. 
+# VE401 Probabilistic Methods in Eng.
 
 ## RC#3 Multi-variate Random Variable
 
@@ -21,7 +21,7 @@ has properties:
 
 (ii)discrete: $\sum_{x \in \Omega} f_{X}(x)=1$. continuous: $\int_{\mathbb{R}^{n}} f_{X}(x) d x=1$
 
-#### marginal density 
+#### marginal density
 
 $f_{X_k}$ for $X_k,\ k=1, ... ,n$
 $$
