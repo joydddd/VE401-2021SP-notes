@@ -1,0 +1,364 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     12487,        354]
+NotebookOptionsPosition[     10640,        313]
+NotebookOutlinePosition[     11092,        331]
+CellTagsIndexPosition[     11049,        328]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\<\
+Basic Statics & CDF
+\
+\>", "Section",
+ CellChangeTimes->{{3.8283196826650953`*^9, 3.828319721141099*^9}, 
+   3.828320589530653*^9},ExpressionUUID->"63238ac0-31f8-4452-acb8-\
+cf709c0178da"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<HypothesisTesting`\>\"", "]"}]], "Input",
+ CellChangeTimes->{
+  3.8283205999498844`*^9},ExpressionUUID->"0775c736-e1d0-4676-b839-\
+701f07bfd964"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"var", ":=", "0.1"}], ";", 
+  RowBox[{
+   SubscriptBox["\[Mu]", "0"], ":=", "41.5"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"ZTest", "[", 
+  RowBox[{"data", ",", " ", "var", ",", " ", 
+   SubscriptBox["\[Mu]", "0"], ",", " ", "\"\<TestDataTable\>\"", ",", " ", 
+   RowBox[{"AlternativeHypothesis", " ", "->", " ", "\"\<Greater\>\""}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"ZTest", "[", 
+  RowBox[{"data", ",", "0.1", ",", "41.5", ",", "\"\<TestDataTable\>\"", ",", 
+   RowBox[{"AlternativeHypothesis", "\[Rule]", "\"\<Unequal\>\""}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ZTest", "[", 
+   RowBox[{"data", ",", "var", ",", 
+    SubscriptBox["\[Mu]", "0"], ",", "\"\<TestDataTable\>\"", ",", 
+    RowBox[{"AlternativeHypothesis", "\[Rule]", "\"\<Less\>\""}]}], "]"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"calculate", " ", "P", " ", "value", " ", "from", " ", "statics"}],
+    " ", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{"Z", "=", 
+  FractionBox[
+   RowBox[{"x", "-", 
+    SubscriptBox["\[Mu]", "0"]}], 
+   RowBox[{"\[Sigma]", "/", 
+    SqrtBox["n"]}]]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"1", "-", 
+   RowBox[{"CDF", "[", 
+    RowBox[{
+     RowBox[{"NormalDistribution", "[", 
+      RowBox[{"0", ",", "1"}], "]"}], ",", "Z"}], "]"}]}], " ", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"0", ":", " ", "mean"}], ",", " ", 
+    RowBox[{"1", ":", " ", "var"}], ",", " ", 
+    RowBox[{
+    "here", " ", "Z", " ", "is", " ", "standard", " ", "normal", " ", 
+     "distribution"}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "caculate", " ", "statics", " ", "critical", " ", "value", " ", "from", 
+    " ", "alpha"}], " ", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{"InverseCDF", "[", 
+  RowBox[{
+   RowBox[{"NormalDistribution", "[", 
+    RowBox[{"0", ",", " ", "1"}], "]"}], ",", 
+   RowBox[{"1", "-", "\[Alpha]"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.828319699237321*^9, 3.828319990963831*^9}, {
+  3.828320310134822*^9, 3.8283203330192485`*^9}, {3.828320370308526*^9, 
+  3.828320386104026*^9}, {3.828320593493142*^9, 
+  3.828320595326886*^9}},ExpressionUUID->"a336ef18-33de-4d4c-bcfe-\
+439a346476b8"],
+
+Cell[CellGroupData[{
+
+Cell["T-Test", "Subsection",
+ CellChangeTimes->{{3.828320267610365*^9, 
+  3.8283202719915743`*^9}},ExpressionUUID->"a3364e9c-62df-4e60-87ba-\
+6ddcac8e0261"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"data", ":=", 
+    RowBox[{"{", 
+     RowBox[{
+     "41.50", ",", "41.38", ",", "42.24", ",", "41.85", ",", "41.76", ",", 
+      "42.08", ",", "41.62", ",", "42.16", ",", "41.71", ",", "41.44"}], 
+     "}"}]}], ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"mean", "=", 
+   RowBox[{"Mean", "[", "data", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"s2", " ", "=", " ", 
+   RowBox[{"Variance", "[", "data", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"s", "=", 
+    SqrtBox["s2"]}], ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"n", "=", 
+   RowBox[{"Length", "[", "data", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"T", "=", 
+  FractionBox[
+   RowBox[{"mean", "-", 
+    SubscriptBox["\[Mu]", "0"]}], 
+   RowBox[{"s", "/", 
+    SqrtBox["n"]}]]}]}], "Input",
+ CellChangeTimes->{
+  3.8283202358465123`*^9, {3.8283203142938147`*^9, 
+   3.8283203250177116`*^9}},ExpressionUUID->"f41e28b3-7f70-47c1-a443-\
+64a436abc8ed"],
+
+Cell[BoxData[{
+ RowBox[{"TTest", "[", 
+  RowBox[{"data", ",", 
+   SubscriptBox["\[Mu]", "0"], ",", "\"\<TestDataTable\>\"", ",", 
+   RowBox[{"AlternativeHypothesis", "\[Rule]", "\"\<Unequal\>\""}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"InverseCDF", "[", 
+  RowBox[{
+   RowBox[{"StudentTDistribution", "[", "k", "]"}], ",", 
+   RowBox[{"1", "-", "\[Alpha]"}]}], "]"}]}], "Input",
+ CellChangeTimes->{
+  3.828320240056814*^9},ExpressionUUID->"70a3da19-f8e2-4fee-8ff7-\
+bf122d70032c"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Chi Squared Test", "Subsection",
+ CellChangeTimes->{{3.828320175886963*^9, 
+  3.828320185392852*^9}},ExpressionUUID->"0f0c8f7e-5787-44f6-b2e6-\
+97046a5477ef"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   SubscriptBox["\[Sigma]", "0"], "=", "1.5"}], ";", 
+  RowBox[{"alpha", " ", "=", " ", "0.05"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"data", " ", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{
+    "6.2", ",", " ", "1.9", ",", " ", "4.4", ",", " ", "4.9", ",", " ", "3.5",
+      ",", "4.6", ",", " ", "4.2", ",", " ", "1.1", ",", " ", "1.3", ",", " ",
+      "4.8", ",", "4.1", ",", " ", "3.7", ",", " ", "2.5", ",", " ", "3.7", 
+     ",", " ", "4.2", ",", "1.4", ",", " ", "2.6", ",", " ", "1.5", ",", " ", 
+     "3.9", ",", " ", "3.2"}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"n", "=", 
+   RowBox[{"Length", "[", "data", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"S", "=", 
+    SqrtBox[
+     RowBox[{"Variance", "[", "data", "]"}]]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Chi]", "=", 
+   SqrtBox[
+    FractionBox[
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"n", "-", "1"}], ")"}], 
+      SuperscriptBox["S", "2"]}], 
+     SuperscriptBox[
+      SubscriptBox["\[Sigma]", "0"], "2"]]]}], ";"}], "\[IndentingNewLine]", 
+ SuperscriptBox["\[Chi]", "2"], "\n", 
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"InverseCDF", "[", 
+      RowBox[{
+       RowBox[{"ChiSquareDistribution", "[", 
+        RowBox[{"n", "-", "1"}], "]"}], ",", 
+       RowBox[{"alpha", "/", "2"}]}], "]"}], ",", 
+     RowBox[{"InverseCDF", "[", 
+      RowBox[{
+       RowBox[{"ChiSquareDistribution", "[", 
+        RowBox[{"n", "-", "1"}], "]"}], ",", 
+       RowBox[{"1", "-", 
+        RowBox[{"alpha", "/", "2"}]}]}], "]"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"InverseCDF", "[", 
+    RowBox[{
+     RowBox[{"ChiSquareDistribution", "[", 
+      RowBox[{"n", "-", "1"}], "]"}], ",", 
+     RowBox[{"1", "-", "alpha"}]}], "]"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"InverseCDF", "[", 
+    RowBox[{
+     RowBox[{"ChiSquareDistribution", "[", 
+      RowBox[{"n", "-", "1"}], "]"}], ",", "alpha"}], "]"}]}], 
+  "}"}], "\[IndentingNewLine]", 
+ RowBox[{"FisherRatioTest", "[", 
+  RowBox[{"data", ",", 
+   SuperscriptBox[
+    SubscriptBox["\[Sigma]", "0"], "2"], ",", "\"\<TestDataTable\>\"", ",", 
+   RowBox[{"AlternativeHypothesis", "\[Rule]", "\"\<Unequal\>\""}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"FisherRatioTest", "[", 
+  RowBox[{"data", ",", 
+   SuperscriptBox[
+    SubscriptBox["\[Sigma]", "0"], "2"], ",", "\"\<TestDataTable\>\"", ",", 
+   RowBox[{"AlternativeHypothesis", "\[Rule]", "\"\<Greater\>\""}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"FisherRatioTest", "[", 
+  RowBox[{"data", ",", 
+   SuperscriptBox[
+    SubscriptBox["\[Sigma]", "0"], "2"], ",", "\"\<TestDataTable\>\"", ",", 
+   RowBox[{"AlternativeHypothesis", "\[Rule]", "\"\<Less\>\""}]}], 
+  "]"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.8283200201298304`*^9, 3.828320035577979*^9}, {
+   3.8283200679495664`*^9, 3.8283201063971977`*^9}, 3.8283201572887125`*^9, 
+   3.828320864384884*^9, {3.828321014946289*^9, 
+   3.828321015151222*^9}},ExpressionUUID->"f39e12ae-4349-4b45-beeb-\
+6bb61b6ade23"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["F Ratio Test", "Subsection",
+ CellChangeTimes->{{3.8283206102460065`*^9, 
+  3.8283206314772043`*^9}},ExpressionUUID->"a955c903-724d-4c69-a842-\
+c9d5e79595ab"],
+
+Cell[BoxData[{
+ RowBox[{"InversCDF", "[", 
+  RowBox[{
+   RowBox[{"FRatioDistribution", "[", 
+    RowBox[{"m", ",", " ", "n"}], "]"}], ",", " ", "alpha"}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"FisherRatioTest", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"data1", ",", "data2"}], "}"}], ",", "\"\<TestDataTable\>\"", 
+    ",", 
+    RowBox[{"AlternativeHypothesis", "\[Rule]", "\"\<Less\>\""}]}], "]"}], 
+  " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{"compare", " ", "if", " ", "variance", " ", "is", " ", "equal"}], 
+   "*)"}], " "}]}], "Input",
+ CellChangeTimes->{{3.828320750289036*^9, 3.8283207742500434`*^9}, {
+  3.828320840946748*^9, 3.8283209062404175`*^9}, {3.828321012390721*^9, 
+  3.828321013716525*^9}},ExpressionUUID->"8db80c31-0262-4f5c-8a71-\
+b6ab32b4a105"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Sign Test", "Subsection",
+ CellChangeTimes->{
+  3.828320425170274*^9},ExpressionUUID->"aa374325-a7f5-4151-8fcc-\
+f4876b688148"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"data", "=", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "1", ",", "2", ",", "3", ",", "4", ",", "5"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"q2", "=", "1"}], ";"}], "\n", 
+ RowBox[{"SignTest", "[", 
+  RowBox[{"data", ",", "q2", ",", "\"\<TestDataTable\>\"", ",", 
+   RowBox[{"AlternativeHypothesis", "\[Rule]", "\"\<Unequal\>\""}]}], 
+  "]"}]}], "Input",ExpressionUUID->"46284a27-bc36-4192-966b-84247cd74c5c"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Wilcoxon Signed Rank Test", "Subsection",
+ CellChangeTimes->{
+  3.8283204402322903`*^9},ExpressionUUID->"bd783a97-8529-4073-ae9c-\
+41abc7a57877"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"data", "=", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "1", ",", "2", ",", "3", ",", "4", ",", "5"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"q2", "=", "1"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"SignedRankTest", "[", 
+  RowBox[{"data", ",", "q2", ",", "\"\<TestDataTable\>\"", ",", 
+   RowBox[{"AlternativeHypothesis", "\[Rule]", "\"\<Unequal\>\""}]}], 
+  "]"}]}], "Input",ExpressionUUID->"bf02f32f-97e7-41e1-9543-e77f7be4e21e"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1152., 585.6},
+WindowMargins->{{
+  Automatic, -5.399999999999864}, {-5.399999999999977, Automatic}},
+FrontEndVersion->"12.2 for Microsoft Windows (64-bit) (2020\:5e7412\:670812\
+\:65e5)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"6c46fd24-2235-4a2d-b173-63f455bb1a5c"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 198, 6, 105, "Section",ExpressionUUID->"63238ac0-31f8-4452-acb8-cf709c0178da"],
+Cell[781, 30, 187, 4, 44, "Input",ExpressionUUID->"0775c736-e1d0-4676-b839-701f07bfd964"],
+Cell[971, 36, 2224, 55, 294, "Input",ExpressionUUID->"a336ef18-33de-4d4c-bcfe-439a346476b8"],
+Cell[CellGroupData[{
+Cell[3220, 95, 156, 3, 54, "Subsection",ExpressionUUID->"a3364e9c-62df-4e60-87ba-6ddcac8e0261"],
+Cell[3379, 100, 1071, 31, 243, "Input",ExpressionUUID->"f41e28b3-7f70-47c1-a443-64a436abc8ed"],
+Cell[4453, 133, 488, 12, 80, "Input",ExpressionUUID->"70a3da19-f8e2-4fee-8ff7-bf122d70032c"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4978, 150, 164, 3, 54, "Subsection",ExpressionUUID->"0f0c8f7e-5787-44f6-b2e6-97046a5477ef"],
+Cell[5145, 155, 3155, 82, 452, "Input",ExpressionUUID->"f39e12ae-4349-4b45-beeb-6bb61b6ade23"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8337, 242, 164, 3, 54, "Subsection",ExpressionUUID->"a955c903-724d-4c69-a842-c9d5e79595ab"],
+Cell[8504, 247, 787, 20, 101, "Input",ExpressionUUID->"8db80c31-0262-4f5c-8a71-b6ab32b4a105"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9328, 272, 133, 3, 54, "Subsection",ExpressionUUID->"aa374325-a7f5-4151-8fcc-f4876b688148"],
+Cell[9464, 277, 467, 11, 83, "Input",ExpressionUUID->"46284a27-bc36-4192-966b-84247cd74c5c"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9968, 293, 151, 3, 54, "Subsection",ExpressionUUID->"bd783a97-8529-4073-ae9c-41abc7a57877"],
+Cell[10122, 298, 490, 11, 83, "Input",ExpressionUUID->"bf02f32f-97e7-41e1-9543-e77f7be4e21e"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
