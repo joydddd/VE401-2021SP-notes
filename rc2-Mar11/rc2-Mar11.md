@@ -41,7 +41,7 @@ Then $X$ is said to be a **binomial random variable with parameters $n$ and $p$.
 
 #### ==Geometric Distribution==  ==$X \sim \operatorname{Geom}(p)$.==
 
-Getting the first success on the xth Bernuolli trail:
+Getting the first success on the xth Bernoulli trail:
 
 Let $S$ be a sample space and
 $$
@@ -104,17 +104,13 @@ is said to follow a **Pascal distribution with parameters $p$ and $r$.**
 Experience x failures before the r success:
 $$
 \begin{aligned}
-X: S \rightarrow \Omega &=\mathbb{N} \backslash\{0,1, \ldots, r-1\} \\
-&=\{r, r+1, r+2, \ldots\}
+X: S \rightarrow \Omega &=\mathbb{N}
 \end{aligned}, \qquad r \in \mathbb{N} \backslash\{0\}
 $$
 
 $$
 f_{X}: \Omega \rightarrow \mathbb{R}, \qquad
-f_{X}(x)=\left(\begin{array}{l}
-x-1 \\
-r-1
-\end{array}\right) p^{r}(1-p)^{x-r}, \quad 0<p<1
+f_{X}(x)=\binom{x+r-1}{r-1} p^{r}(1-p)^x, \quad 0<p<1
 $$
 
 is said to follow a **Pascal distribution with parameters $p$ and $r$**.
